@@ -1,8 +1,14 @@
-# React + Vite
+# Penta One-Page Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este projeto é um website one-page construído com React e Vite. Ele apresenta uma estrutura modular e escalável, ideal para exibir informações de forma concisa e direta em uma única página.
 
-Currently, two official plugins are available:
+## Visão Geral
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+O website foi desenvolvido com foco em organização e facilidade de manutenção, utilizando componentes reutilizáveis para representar cada seção da página. A estrutura permite a adição de novas seções e funcionalidades de maneira simples e eficiente.
+
+## Tecnologias Utilizadas
+
+* **React:** Biblioteca JavaScript para construção de interfaces de usuário.
+* **Vite:** Ferramenta de build e servidor de desenvolvimento rápido para aplicações web modernas.
+
+## Estrutura do Projeto
