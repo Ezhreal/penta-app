@@ -1,0 +1,464 @@
+@import "tailwindcss";
+
+
+/* Reset CSS Básico */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Remove margens e preenchimentos padrão */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd,
+dt {
+  margin: 0;
+  padding: 0;
+}
+
+/* Define box-sizing para border-box para todos os elementos */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove estilos de lista padrão */
+ul,
+ol {
+  list-style: none;
+}
+
+/* Remove decoração de texto padrão para links */
+a {
+  text-decoration: none;
+}
+
+/* Garante que imagens e vídeos não excedam seus contêineres */
+img,
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+:root {
+  --cor-principal: #FAB948;
+  --cor-secundaria: #454545;
+  --cor-white: #ffffff;
+  --cor-texto: #454545;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  line-height: 1.2;
+  color: var(--cor-secundaria);
+  font-size: 16px;
+}
+
+p {
+  line-height: 1.6;
+}
+
+/* hero */
+.hero__background--layer2 {
+  background-image: url('./assets/images/hero-background-person.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: bottom right;
+  width: auto;
+  height: auto;
+  transition: transform 0.3s ease-out;
+  will-change: transform;
+}
+
+.hero__background--layer1 {
+  background-image: url('./assets/images/hero-background.jpg');
+}
+
+.hero__background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.hero {
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero__title h1 {
+  color: var(--cor-principal);
+  display: block;
+  font-size: 120px;
+  line-height: 1.2;
+  font-weight: 900;
+}
+
+.hero__title h3 {
+  color: var(--cor-white);
+  display: block;
+  font-size: 95px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.hero__title h2 {
+  color: var(--cor-white);
+  display: block;
+  font-size: 48px;
+  font-weight: 900;
+  line-height: 1.2;
+}
+
+/* Block: About */
+.title {
+  position: relative;
+  /* Important for absolute positioning of elements */
+  width: 100%;
+  /* Take up full width */
+  height: auto;
+  /* Adjust height as needed, or use a fixed height */
+  display: flex;
+  justify-content: space-between;
+  /* Center content horizontally */
+  align-items: center;
+  /* Center content vertically */
+  overflow: hidden;
+  /* Hide any overflowing content if scale is used*/
+}
+
+.title>.title__content {
+  /* Aplica a todos os elementos filhos */
+  flex-shrink: 0;
+}
+
+/* Modifier:  We might not need a specific modifier if this is the *only* style */
+/* .about--has-background {} */
+
+/* Element: About content container */
+.title__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Left-align content */
+  text-align: left;
+  /* Ensure text is left-aligned */
+  position: relative;
+  /*For absolute positioning inside*/
+  padding: 60px 0px 60px 0px;
+  width: 20%;
+  z-index: 2;
+  /* Ensure content is above the background */
+  background-color: var(--cor-principal);
+  /* Red background (from the image) */
+
+}
+
+.title--second .title__content {
+  background-color: var(--cor-secundaria);
+}
+
+.title--third .title__content {
+  background-color: transparent;
+}
+
+/* Element: About number */
+.title__number {
+  font-size: 7rem;
+  font-weight: 700;
+  opacity: 0.6;
+  color: var(--cor-secundaria);
+  /* White text */
+  line-height: 1;
+  /* position: absolute; */
+  z-index: 1;
+  height: 60px;
+  overflow: hidden;
+}
+
+.title--second .title__number {
+  color: var(--cor-principal);
+}
+
+/* Element: About spacer - We can remove this, as the layout is handled differently */
+/* .about__spacer {} */
+
+/* Element: About title */
+.title__text {
+  font-size: 4rem;
+  /* Large font size for the title */
+  font-weight: 900;
+  color: var(--cor-secundaria);
+  /* White text */
+  line-height: 1;
+  /* Tight line-height */
+  margin: 0;
+  /* Remove default margins */
+  position: relative;
+  /*For the z-index*/
+  z-index: 3;
+}
+
+.title--second .title__text {
+  color: var(--cor-principal);
+}
+
+.title--third .title__text {
+  color: var(--cor-principal);
+}
+
+.about__header,
+.about__subtitle {
+  padding: 0 60px;
+}
+
+
+.about__header h3 {
+  font-size: 40px;
+  /* Large font size for the title */
+  font-weight: 900;
+}
+
+
+.info {
+  background-color: var(--cor-secundaria);
+  margin-left: 20%;
+}
+
+.info__video-container {
+  width: 100%;
+}
+
+.info__video-container video {
+  width: 100%;
+  height: auto;
+}
+
+.info__text {
+  padding: 60px;
+}
+
+.info__textdestaque {
+  font-size: 20px;
+  margin-bottom: 60px;
+}
+
+.info__text p {
+  margin-bottom: 40px;
+}
+
+.info__text h3 {
+  font-size: 32px;
+  margin-bottom: 32px;
+}
+
+/* Block: Portfolio */
+
+.portfolio {
+  background-color: #FAB948;
+}
+
+.portfolio__header,
+.portfolio__subtitle {
+  padding: 0 60px;
+}
+
+
+.portfolio__header h3 {
+  font-size: 40px;
+  /* Large font size for the title */
+  font-weight: 900;
+}
+
+
+.portfolio__content {
+  margin-left: 20%;
+  padding-bottom: 120px;
+}
+
+.portfolio__itemTipo {
+  text-align: center;
+  color: var(--cor-white);
+
+}
+
+.portfolio__itemTitulo {
+  text-align: center;
+  color: var(--cor-principal);
+  font-weight: bold;
+  margin-bottom: 24px;
+}
+
+.portfolio__itemCliente {
+  text-align: center;
+  color: var(--cor-white);
+  font-weight: bold;
+  margin-bottom: 40px;
+}
+
+.portfolio__itemLermais {
+  text-align: center;
+  color: var(--cor-white);
+}
+
+
+/* Block: Contact */
+.contact {
+  background: url('./assets/images/contact-bg.jpg') fixed center center no-repeat;
+  background-size: cover;
+  padding-bottom: 120px;
+}
+
+.contact__text p {
+  font-size: 32px;
+}
+
+.content__content {
+  margin-left: 20%;
+}
+
+.btn-contact {
+  width: 100%;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: bold;
+  padding: 20px;
+  max-width: 500px;
+  background-color: var(--cor-principal);
+}
+
+/*Block: Footer */
+
+.footer {
+  margin-top: -80px;
+  padding: 20px;
+}
+
+.copyright {
+  font-size: 14px;
+  color: white;
+  /* Cor dos ícones */
+
+}
+
+.social-icons a {
+  margin-left: 10px;
+  color: white;
+  /* Cor dos ícones */
+  font-size: 20px;
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+
+  .title__content,
+  .title {
+    display: block;
+    width: 100%;
+
+  }
+
+  .title__content {
+    padding: 20px;
+  }
+
+  .title__number {
+    text-align: center;
+  }
+
+  .title--second .title__number {
+    color: var(--cor-principal);
+  }
+
+  /* Element: About spacer - We can remove this, as the layout is handled differently */
+  /* .about__spacer {} */
+
+  /* Element: About title */
+  .title__text {
+    font-size: 2rem;
+    /* Large font size for the title */
+    text-align: center;
+  }
+
+  .about,
+  .portfolio__group {
+    padding: 20px;
+  }
+
+  .about__subtitle,
+  .about__header,
+  .portfolio__header {
+    padding: 0px;
+  }
+
+  .about__header,
+  .portfolio__header {
+    margin-bottom: 24px;
+  }
+
+  .about__header h3,
+  .portfolio__header h3,
+  .contact__text p {
+    font-size: 24px;
+    font-weight: 900;
+  }
+
+  .info,
+  .portfolio__content,
+  .content__content {
+    margin: 0
+  }
+
+  .info__text,
+  .contact__group {
+    padding: 20px;
+  }
+
+  .info__text p {
+    font-size: 16px;
+  }
+
+  .portfolio__content {
+    padding: 20px;
+  }
+
+  .hero__background--layer2 {
+    background-image: none;
+  }
+
+  .hero__title h2 {
+    text-align: center;
+    font-size: 32px;
+  }
+
+  .hero__title h3 {
+    text-align: center;
+    font-size: 40px;
+  }
+
+  .hero__title h1 {
+    text-align: center;
+    font-size: 50px;
+  }
+
+  .hero {
+    width: 100%;
+    height: 50vh;
+}
+header {
+  padding: 0 20px;
+}
+}
