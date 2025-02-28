@@ -1,5 +1,7 @@
+/* eslint-disable no-unused-vars */
 import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faLinkedin, faInstagram } from '@fortawesome/free-brands-svg-icons';
 
 
 function Footer() {
@@ -15,10 +17,10 @@ function Footer() {
         </div>
         <div className="social-icons">
           <a href="URL_DO_LINKEDIN" target="_blank" rel="noopener noreferrer">
-          <FontAwesomeIcon icon="fa-brands fa-linkedin" />
+          <FontAwesomeIcon icon={faLinkedin} />
           </a>
           <a href="URL_DO_INSTAGRAM" target="_blank" rel="noopener noreferrer">
-            <FontAwesomeIcon icon="fa-brands fa-square-instagram" />
+          <FontAwesomeIcon icon={faInstagram} />
           </a>
         </div>
       </div>

@@ -1,5 +1,9 @@
-// PortfolioItem.jsx
+/* eslint-disable react/prop-types */
+/* eslint-disable no-unused-vars */
 import React, { memo } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
+
 
 const PortfolioItem = memo(({ item, onClick }) => {
   return (
@@ -19,7 +23,7 @@ const PortfolioItem = memo(({ item, onClick }) => {
         <div className="portfolio__itemTipo transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">{item.tipo}</div>
         <h3 className="portfolio__itemTitulo text-2xl font-bold mb-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75">{item.titulo}</h3>
         <div className="portfolio__itemCliente transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-150">{item.cliente}</div>
-        <div className="portfolio__itemLermais transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-200"> Leia Mais</div>
+        <div className="portfolio__itemLermais transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-200"> Leia Mais <FontAwesomeIcon icon={faArrowRight} /></div>
       </div>
     </div>
   );

@@ -1,14 +1,35 @@
-# Penta One-Page Website
-
-Este projeto é um website one-page construído com React e Vite. Ele apresenta uma estrutura modular e escalável, ideal para exibir informações de forma concisa e direta em uma única página.
-
-## Visão Geral
-
-O website foi desenvolvido com foco em organização e facilidade de manutenção, utilizando componentes reutilizáveis para representar cada seção da página. A estrutura permite a adição de novas seções e funcionalidades de maneira simples e eficiente.
-
-## Tecnologias Utilizadas
-
-* **React:** Biblioteca JavaScript para construção de interfaces de usuário.
-* **Vite:** Ferramenta de build e servidor de desenvolvimento rápido para aplicações web modernas.
-
-## Estrutura do Projeto
+/**
+ * # Penta One-Page Website
+ * 
+ * A modern single-page website built with React and Vite, featuring a modular and scalable architecture.
+ * 
+ * ## Key Features
+ * - Modular component structure
+ * - Easy to maintain and extend
+ * - Organized section-based layout
+ * - Bilingual documentation (English/Portuguese)
+ * 
+ * ## Tech Stack
+ * - React for UI components
+ * - Vite for build and development
+ * 
+ * The project follows best practices for component organization and maintainability,
+ * making it ideal for showcasing information in a clean, single-page format.
+ *//**
+ * # Penta One-Page Website
+ * 
+ * A modern single-page website built with React and Vite, featuring a modular and scalable architecture.
+ * 
+ * ## Key Features
+ * - Modular component structure
+ * - Easy to maintain and extend
+ * - Organized section-based layout
+ * - Bilingual documentation (English/Portuguese)
+ * 
+ * ## Tech Stack
+ * - React for UI components
+ * - Vite for build and development
+ * 
+ * The project follows best practices for component organization and maintainability,
+ * making it ideal for showcasing information in a clean, single-page format.
+ */

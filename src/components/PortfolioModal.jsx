@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState, useEffect, useCallback, useContext } from 'react';
 import { PortfolioContext } from './PortfolioContext';
 
