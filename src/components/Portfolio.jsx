@@ -28,18 +28,22 @@ const Portfolio = () => {
           </div>
 
           <div className="portfolio__group">
+             <AnimateOnScroll direction="right" delay={0.4}>
+                        <div className="about__subtitle">
+                          <p>NOSSO TRABALHO</p>
+                        </div>
+                      </AnimateOnScroll>
             <div className="portfolio__title md:flex flex-col md:flex-row justify-between md:items-center gap-6">
-              <AnimateOnScroll direction="left" delay={0.4}>
+              <AnimateOnScroll direction="left" delay={0.6}>
                 <div className="portfolio__header">
-                  <h3 className="text-2xl font-bold">A Penta transforma o aprendizado</h3>
+                  <h3 className="text-2xl font-bold">Transformamos desafios em oportunidades.</h3>
                 </div>
               </AnimateOnScroll>
 
-              <AnimateOnScroll direction="right" delay={0.6}>
+              <AnimateOnScroll direction="right" delay={0.8}>
                 <div className="portfolio__text">
                   <p>
-                    Conheça alguns dos projetos que realizamos e como ajudamos
-                    empresas a transformar a educação corporativa.
+                  Fornecemos consultoria em soluções edtech, com foco em vídeos, treinamentos corporativos e apresentações profissionais.
                   </p>
                 </div>
               </AnimateOnScroll>

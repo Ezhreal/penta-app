@@ -259,12 +259,8 @@ p {
 
 .info__textdestaque {
   font-size: 20px;
-  margin-bottom: 60px;
 }
 
-.info__text p {
-  margin-bottom: 40px;
-}
 
 .info__text h3 {
   font-size: 32px;
@@ -370,6 +366,12 @@ p {
 
 @media (max-width: 768px) {
 
+  .contact {
+    background: none;
+    background-color: #454545;
+    background-size: cover;
+    padding-bottom: 120px;
+  }
   .title__content,
   .title {
     display: block;
@@ -468,4 +470,5 @@ p {
   header {
     padding: 0 20px;
   }
+  .title--third .title__number {color: var(--cor-principal);}
 }

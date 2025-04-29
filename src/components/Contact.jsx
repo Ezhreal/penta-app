@@ -1,39 +1,27 @@
-/* eslint-disable no-useless-escape */
-/* eslint-disable react/prop-types */
-/* eslint-disable no-unused-vars */
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
-import { AnimateOnScroll } from "./AnimateOnScroll"; // Importe o componente de animação
+import { AnimateOnScroll } from "./AnimateOnScroll";
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
-  // Estado para gerenciar os valores do formulário
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
     message: "",
   });
-  
-  // Estado para gerenciar erros de validação
-  const [errors, setErrors] = useState({});
-  
-  // Estado para o reCAPTCHA
-  const [captchaValue, setCaptchaValue] = useState(null);
-  
-  // Estado para a mensagem de sucesso após envio
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  
-  // Estado para indicar que o formulário está sendo enviado
-  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // Função para atualizar o estado quando o usuário digita
+  const [errors, setErrors] = useState({});
+  const [captchaValue, setCaptchaValue] = useState(null);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const recaptchaRef = useRef(null);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
       ...formData,
       [name]: value,
     });
-    
-    // Limpar erro do campo quando o usuário começa a digitar
     if (errors[name]) {
       setErrors({
         ...errors,
@@ -42,73 +30,64 @@ const Contact = () => {
     }
   };
 
-  // Função para validar o formulário
   const validateForm = () => {
     const newErrors = {};
-    
+
     if (!formData.name.trim()) {
       newErrors.name = "Nome é obrigatório";
     }
-    
+
     if (!formData.phone.trim()) {
       newErrors.phone = "Telefone é obrigatório";
     } else if (!/^[0-9\s()+\-]+$/.test(formData.phone)) {
       newErrors.phone = "Telefone inválido";
     }
-    
+
     if (!formData.message.trim()) {
       newErrors.message = "Mensagem é obrigatória";
     }
-    
+
     if (!captchaValue) {
       newErrors.captcha = "Por favor, confirme que você não é um robô";
     }
-    
+
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
 
-  // Função para lidar com o envio do formulário
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
-    // Validar o formulário antes de enviar
+
     if (!validateForm()) return;
-    
+
     setIsSubmitting(true);
-    
+
     try {
-      // Aqui você faria a chamada para seu backend
-      // Exemplo com fetch:
-      const response = await fetch('https://sua-api.com/enviar-formulario', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          ...formData,
-          recaptchaToken: captchaValue,
-        }),
-      });
-      
-      // Verificar se a resposta foi bem-sucedida
-      if (response.ok) {
-        // Limpar o formulário após o envio bem-sucedido
+      if (captchaValue) {
+        const emailParams = {
+          from_name: formData.name,
+          from_phone: formData.phone,
+          message: formData.message,
+          to_email: 'silas@gmail.com', // Substitua pelo email de destino
+        };
+
+        await emailjs.send('service_irlc2od', 'template_yp6n50e', emailParams, '6zJTvasKc_dSTwadw'); // Substitua suas credenciais do EmailJS
+
         setFormData({ name: "", phone: "", message: "" });
         setCaptchaValue(null);
+        recaptchaRef.current.reset();
         setIsSubmitted(true);
-        
-        // Reset do estado de sucesso após 5 segundos
+
         setTimeout(() => {
           setIsSubmitted(false);
         }, 5000);
       } else {
-        // Se a resposta não for bem-sucedida, tratar o erro
-        const errorData = await response.json();
-        throw new Error(errorData.message || 'Erro ao enviar o formulário');
+        setErrors({
+          ...errors,
+          form: "Por favor, complete o reCAPTCHA.",
+        });
       }
     } catch (error) {
-      // Tratar erros de rede ou da API
       setErrors({
         ...errors,
         form: `Erro ao enviar o formulário: ${error.message}`,
@@ -118,7 +97,6 @@ const Contact = () => {
     }
   };
 
-  // Função para lidar com a mudança do reCAPTCHA
   const handleCaptchaChange = (value) => {
     setCaptchaValue(value);
     if (errors.captcha) {
@@ -140,9 +118,9 @@ const Contact = () => {
                 <div className="title__spacer"></div>
                 <h2 className="title__text">
                   CON
-                  <br className="hidden md:block" /> 
+                  <br className="hidden md:block" />
                   TA
-                  <br className="hidden md:block" /> 
+                  <br className="hidden md:block" />
                   TOS
                 </h2>
               </AnimateOnScroll>
@@ -154,9 +132,7 @@ const Contact = () => {
               <AnimateOnScroll direction="right" delay={0.4}>
                 <div className="contact__text">
                   <p className="text-white">
-                    Estamos comprometidos em oferecer um atendimento exclusivo e
-                    personalizado para você! Para começarmos, por favor, preencha o
-                    formulário abaixo:
+                    Estamos comprometidos em oferecer atendimento personalizado. Por favor, preencha o formulário abaixo:
                   </p>
                 </div>
               </AnimateOnScroll>
@@ -173,13 +149,13 @@ const Contact = () => {
             </AnimateOnScroll>
           ) : (
             <AnimateOnScroll direction="up" delay={0.3}>
-              <form onSubmit={handleSubmit} className="p-6 mx-auto">
+              <form onSubmit={handleSubmit} className="py-6 mx-auto">
                 {errors.form && (
                   <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
                     {errors.form}
                   </div>
                 )}
-                
+
                 <div className="mb-6">
                   <label htmlFor="name" className="block text-white mb-2">Nome</label>
                   <input
@@ -188,13 +164,11 @@ const Contact = () => {
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    className={`w-full px-3 py-2 bg-transparent border-b-2 border-gray-300 text-white focus:outline-none focus:border-yellow-500 ${
-                      errors.name ? 'border-red-500' : ''
-                    }`}
+                    className={`w-full px-3 py-2 bg-transparent border-b-2 border-gray-300 text-white focus:outline-none focus:border-yellow-500 ${errors.name ? 'border-red-500' : ''}`}
                   />
                   {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
                 </div>
-                
+
                 <div className="mb-6">
                   <label htmlFor="phone" className="block text-white mb-2">Telefone</label>
                   <input
@@ -203,13 +177,11 @@ const Contact = () => {
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    className={`w-full px-3 py-2 bg-transparent border-b-2 border-gray-300 text-white focus:outline-none focus:border-yellow-500 ${
-                      errors.phone ? 'border-red-500' : ''
-                    }`}
+                    className={`w-full px-3 py-2 bg-transparent border-b-2 border-gray-300 text-white focus:outline-none focus:border-yellow-500 ${errors.phone ? 'border-red-500' : ''}`}
                   />
                   {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone}</p>}
                 </div>
-                
+
                 <div className="mb-6">
                   <label htmlFor="message" className="block text-white mb-2">Mensagem</label>
                   <textarea
@@ -218,22 +190,21 @@ const Contact = () => {
                     value={formData.message}
                     onChange={handleChange}
                     rows="4"
-                    className={`w-full px-3 py-2 bg-transparent border-b-2 border-gray-300 text-white focus:outline-none focus:border-yellow-500 ${
-                      errors.message ? 'border-red-500' : ''
-                    }`}
+                    className={`w-full px-3 py-2 bg-transparent border-b-2 border-gray-300 text-white focus:outline-none focus:border-yellow-500 ${errors.message ? 'border-red-500' : ''}`}
                   ></textarea>
                   {errors.message && <p className="text-red-500 text-sm mt-1">{errors.message}</p>}
                 </div>
-                
+
                 <div className="mb-6">
                   <ReCAPTCHA
-                    sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI" // Este é um sitekey de teste, você precisará substituí-lo pelo seu
+                    ref={recaptchaRef}
+                    sitekey="6Lfj5eUqAAAAAFr2tqcysbpqyCv4zmJVABxFEwW-" // Substitua por sua chave reCAPTCHA v2
                     onChange={handleCaptchaChange}
                     theme="dark"
                   />
                   {errors.captcha && <p className="text-red-500 text-sm mt-1">{errors.captcha}</p>}
                 </div>
-                
+
                 <div className="flex justify-center">
                   <button
                     type="submit"

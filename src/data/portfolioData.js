@@ -6,6 +6,8 @@ const portfolioData = [
     cliente: "Skyone",
     tipo: "Treinamento",
     thumb: "/assets/images/portfolio/teste.jpg",
+    video: "https://www.youtube.com/watch?v=LXb3EKWsInQ",
+    videoDescricao: "Vídeo de apresentação da Jornada da Tecnologia realizada para a Skyone.",
     items: [
       {
         foto: "/assets/images/portfolio/teste1.jpg",
@@ -26,6 +28,8 @@ const portfolioData = [
     cliente: "TechCorp",
     tipo: "Workshop",
     thumb: "/assets/images/portfolio/teste.jpg",
+    video: "/assets/videos/video.mp4",
+    videoDescricao: "Vídeo de apresentação da Jornada da Tecnologia realizada para a Skyone.",
     items: [
       {
         foto: "/assets/images/portfolio/teste.jpg",

@@ -14,9 +14,9 @@ const About = () => {
               <h2 className="title__text">
                 SO
                 <br className="hidden md:block" /> 
-                BRE
+                BRE&nbsp;
                 <br className="hidden md:block" /> 
-                NOS
+                NÓS
               </h2>
             </AnimateOnScroll>
           </div>
@@ -32,16 +32,14 @@ const About = () => {
           <div className="about__title md:flex justify-between items-center">
             <AnimateOnScroll direction="left" delay={0.6}>
               <div className="about__header">
-                <h3>Conectando mentes, construindo o futuro</h3>
+                <h3>Aprendizado criativo, profissionais capacitados!</h3>
               </div>
             </AnimateOnScroll>
 
             <AnimateOnScroll direction="right" delay={0.8}>
               <div className="about__content">
                 <p>
-                  Nossa agência se dedica à promoção de soluções para a educação
-                  corporativa, utilizando a tecnologia como ferramenta
-                  principal.
+                Nossa agência une criatividade e tecnologia para transformar a educação corporativa.
                 </p>
               </div>
             </AnimateOnScroll>
@@ -62,17 +60,11 @@ const About = () => {
           <div className="info__text">
             <AnimateOnScroll direction="right" delay={0.4}>
               <p className="info__textdestaque text-white mb-3">
-                Com vasta experiência em treinamento corporativo, a Penta
-                oferece soluções completas e flexíveis para atender às
-                necessidades específicas de cada empresa. Nossa equipe de
-                especialistas em Ed Tech e desenvolvimento de talentos trabalha
-                em conjunto com você para criar programas de treinamento que
-                engajam, capacitam e transformam seus colaboradores em
-                profissionais de alta performance.
+              Com ampla experiência em diversos setores, garantimos excelência e resultados em nossos projetos, atendendo às necessidades de organizações com prazos e orçamentos específicos.
               </p>
             </AnimateOnScroll>
 
-            <AnimateOnScroll direction="right" delay={0.5}>
+{/*             <AnimateOnScroll direction="right" delay={0.5}>
               <h3 className="text-white font-extrabold">O que oferecemos</h3>
               <p className="text-white">
                 Oferecemos consultoria especializada em soluções edtech e no
@@ -87,7 +79,7 @@ const About = () => {
               <p className="text-white mb-5">
                 Nosso foco está no setor de treinamento de empresas de médio e grande porte.
               </p>
-            </AnimateOnScroll>
+            </AnimateOnScroll> */}
           </div>
         </div>
       </div>
